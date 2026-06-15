@@ -28,14 +28,12 @@ all accomplished with zero training on a single GPU.
 ## Results
 
 Reported on the official `plan_set=main`, `split=test` configuration of the
-Qualcomm Interactive Cooking benchmark. Winner criterion is
-**F1 → BERT → ROUGE-L → IC-Acc** (F1 primary; the others are tie-breakers
-followed by an interpretability metric).
+Qualcomm Interactive Cooking benchmark. 
 
-| System | F1 ↑ | BERT ↑ | ROUGE-L ↑ | IC-Acc ↑ | Precision | Recall |
+| System | IC-Acc ↑ | Prec. ↑ | Rec. ↑ | F1 ↑ | BERT ↑ | ROUGE-L ↑ |
 |---|---:|---:|---:|---:|---:|---:|
-| Qwen3-VL-8B-Instruct (free-form baseline) | 0.000 | 0.000 | 0.000 | 19.78 | 0.000 | 0.000 |
-| **Ours (MCQ + Grounding DINO)** | **0.1989** | **0.450** | **0.336** | **31.45** | 0.165 | 0.249 |
+| Qwen3-VL-8B-Instruct | 19.78 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
+| **Ours (MCQ + Grounding DINO)** | **31.45** | 0.165 | 0.249 | **0.1989** | **0.450** | **0.336** |
 
 All metrics target the **mistake stream** (Feedback emits matched against
 ground-truth mistakes), except **IC-Acc** which scores instruction-completion
@@ -69,8 +67,6 @@ pip3 install --upgrade torch torchvision --index-url https://download.pytorch.or
 pip install -r requirements.txt
 ```
 
-Tested on a single NVIDIA A100 with CUDA 12.4. `flash-attention` requires
-building from source or using a CUDA-matched wheel.
 
 ## Data
 
@@ -162,7 +158,6 @@ python tools/extract_summary_objects.py \
 ```
 .
 ├── README.md
-├── LICENSE                 (MIT)
 ├── requirements.txt
 ├── data.py                 # Qualcomm benchmark + CaptainCook4D loader
 ├── extract_frames.py       # 2-FPS frame extractor
@@ -179,18 +174,7 @@ python tools/extract_summary_objects.py \
     └── grounding_dino_verifier.py
 ```
 
-## Citation
-
-If you find this work useful, please cite:
-
-```bibtex
-@misc{aicoach2026cooking,
-  title  = {A Training-Free Pipeline for the AI Coach Cooking Challenge},
-  author = {Choi, Yeeun},
-  year   = {2026},
-  note   = {VAR Workshop @ CVPR 2026, AI Coach Challenge: Cooking}
-}
-```
+## Acknowledgements
 
 The pipeline builds on:
 
@@ -207,7 +191,3 @@ The pipeline builds on:
   visual verifier ([paper](https://arxiv.org/abs/2303.05499)).
 - **Qualcomm Interactive Cooking benchmark** — task definition, splits,
   and evaluation.
-
-## License
-
-MIT. See [LICENSE](LICENSE).
