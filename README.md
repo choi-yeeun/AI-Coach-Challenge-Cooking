@@ -32,8 +32,8 @@ Qualcomm Interactive Cooking benchmark.
 
 | System | IC-Acc ↑ | Prec. ↑ | Rec. ↑ | F1 ↑ | BERT ↑ | ROUGE-L ↑ |
 |---|---:|---:|---:|---:|---:|---:|
-| Qwen3-VL-8B-Instruct | 19.78 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
-| **Ours (MCQ + Grounding DINO)** | **31.45** | 0.165 | 0.249 | **0.1989** | **0.450** | **0.336** |
+| Qwen3-VL-8B-Instruct | 19.78 | 0.00 | 0.00 | 0.00 | 0.000 | 0.000 |
+| **Ours (MCQ + Grounding DINO)** | **31.45** | 0.17 | 0.25 | **0.20** | **0.450** | **0.336** |
 
 All metrics target the **mistake stream** (Feedback emits matched against
 ground-truth mistakes), except **IC-Acc** which scores instruction-completion
