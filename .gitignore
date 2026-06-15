@@ -1,0 +1,45 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[codz]
+*$py.class
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual envs
+.env
+.venv
+env/
+venv/
+ENV/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Experiment artifacts (regenerated on every run)
+log/
+predictions/
+results/
+dino_results/
+
+# Frame extraction outputs (kept under DATA_ROOT, not the repo)
+*_360p_video_frames_*/
+*.jpg
+*.png
+*.mp4
+
+# Logs / scratch
+*.log
+*.jsonl
+*.jsonl.gz
+*.jsonl.gz.part
+*.tmp
+*.swp
+
+# Re-include required text/json assets (under assets/ and prompts/)
+!assets/*.json
+!prompts/*.json
+!requirements.txt
